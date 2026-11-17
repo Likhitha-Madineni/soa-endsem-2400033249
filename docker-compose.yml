@@ -8,13 +8,13 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: exam123
-      POSTGRES_DB: soa-skill-exam-2400033249
+      POSTGRES_DB: soa-end-exam-2400033249
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d soa-skill-exam-2400033249"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d soa-end-exam-2400033249"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -23,7 +23,7 @@ services:
       - microservices-network
 
   libraryfinepayment-service:
-    image: likhitha16/docker-skill-exam-2400033249:latest
+    image: likhitha16/docker-end-exam-2400033249:latest
     build:
       context: ./LibraryFinePayment
       dockerfile: Dockerfile
