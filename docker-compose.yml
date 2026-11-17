@@ -14,7 +14,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d campaign-33249"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d library-fine-payment-33249"]
       interval: 5s
       timeout: 5s
       retries: 10
