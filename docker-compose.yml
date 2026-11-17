@@ -8,13 +8,13 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: exam123
-      POSTGRES_DB: soa-end-exam-2400033249
+      POSTGRES_DB: campaign-33249
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d soa-end-exam-2400033249"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d campaign-33249"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -22,14 +22,14 @@ services:
     networks:
       - microservices-network
 
-  libraryfinepayment-service:
-    image: likhitha16/docker-end-exam-2400033249:latest
+  library-service:
+    image: likhitha16/docker-library-fine-payment-2400033249:latest
     build:
       context: ./LibraryFinePayment
       dockerfile: Dockerfile
-    container_name: libraryfinepayment-service
+    container_name: library-service
     ports:
-      - "8001:8001"
+      - "3249:3249"
     depends_on:
       postgresdb:
         condition: service_healthy
